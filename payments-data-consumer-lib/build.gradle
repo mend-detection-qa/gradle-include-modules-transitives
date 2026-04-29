@@ -1,0 +1,12 @@
+// payments-data-consumer-lib — local library submodule
+// Pulled in by payments-data-consumer as project(':payments-data-consumer-lib')
+//
+// TKA-10120: commons-codec must be resolved as a transitive through the chain:
+//   secretsmanager -> apache-client -> commons-codec
+dependencies {
+    // AWS Secrets Manager SDK — transitively pulls in commons-codec via HTTP client
+    implementation 'software.amazon.awssdk:secretsmanager:2.20.157'
+    implementation 'software.amazon.awssdk:apache-client:2.20.157'
+
+    testImplementation 'junit:junit:4.13.2'
+}
