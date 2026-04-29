@@ -1,0 +1,15 @@
+// payments-data-consumer — the module targeted by gradle.includeModules
+// TKA-10120: Mend should resolve ALL transitives for this module when scanned
+// in isolation via: gradle.includeModules=payments-data-consumer
+dependencies {
+    // Direct declared dep — brings in joda-time:joda-time:2.10.8 as a transitive
+    implementation 'com.amazonaws:aws-lambda-java-events:3.14.0'
+
+    // Local sub-library dep — the dependency path through which commons-codec should be resolved:
+    // :payments-data-consumer-lib -> software.amazon.awssdk:secretsmanager
+    //   -> apache-client -> commons-codec
+    implementation project(':payments-data-consumer-lib')
+
+    // JUnit for unit tests
+    testImplementation 'junit:junit:4.13.2'
+}
