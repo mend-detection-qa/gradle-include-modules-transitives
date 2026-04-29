@@ -1,0 +1,5 @@
+rootProject.name = 'payments-monorepo'
+
+include 'payments-data-consumer'
+include 'payments-data-consumer-lib'
+include 'payments-api'
