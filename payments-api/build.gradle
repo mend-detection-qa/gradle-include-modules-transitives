@@ -1,0 +1,12 @@
+// payments-api — intentionally NOT included in the Mend scan
+// (gradle.includeModules=payments-data-consumer only)
+//
+// TKA-10120: Dependencies here should NOT appear in Mend scan results.
+// If spring-webmvc or guava appear in the results, that is a separate
+// filtering regression.
+dependencies {
+    implementation 'org.springframework:spring-webmvc:6.0.11'
+    implementation 'com.google.guava:guava:32.1.2-jre'
+
+    testImplementation 'junit:junit:4.13.2'
+}
